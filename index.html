@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayan Kumar R - Wireframe Transformation</title>
+    <style>
+        /* CSS STYLING RULES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #00ffcc;
+        }
+
+        .hero {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 2px solid #eef2f5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .hero h1 {
+            color: #003366;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-top: 5px solid #003366;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #222;
+            color: #aaa;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        /* Responsive Breakpoint for Small Mobile Screens */
+        @media (max-width: 680px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            header nav a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 26px;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HTML STRUCTURE RULES -->
+    <header>
+        <div class="logo">Nayan Kumar R</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Projects</a>
+            <a href="#">Tasks</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Week 1 Task: Wireframe Transformation</h1>
+        <p>A clean, functional front-end user interface engineered using structural HTML5 semantic wrappers and responsive CSS3 Grid rulesets.</p>
+    </section>
+
+    <main class="grid-container">
+        <div class="card">
+            <h3>1. Semantic Architecture</h3>
+            <p>Utilizes clean native wrappers like header, main, and section nodes to ensure a highly accessible document layout mapping that satisfies evaluation criteria.</p>
+        </div>
+        <div class="card">
+            <h3>2. Adaptive Fluid Grid</h3>
+            <p>Built using modern CSS display properties without relying on rigid pixel grids. Elements shift smoothly from horizontal grids to a vertical mobile stack.</p>
+        </div>
+        <div class="card">
+            <h3>3. Pure Layout Execution</h3>
+            <p>Maintains exact typography scales, corporate color hierarchies, and border rules without requiring external frameworks or code packages.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nayan Kumar R | Kuvempu University SEP Internship Portfolio</p>
+    </footer>
+
+</body>
+</html>

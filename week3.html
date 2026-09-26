@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nayan Kumar R | Interactive Portfolio</title>
+
+    <style>
+        /* =========================
+           CSS - PAGE STYLING
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f8fc;
+            color: #172b4d;
+            line-height: 1.6;
+            transition: 0.3s ease;
+        }
+
+        /* Header */
+
+        header {
+            background: #003b73;
+            color: white;
+            padding: 16px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #58a6ff;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-btn,
+        .menu-btn {
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            padding: 9px 12px;
+            background: white;
+            color: #003b73;
+            font-weight: bold;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 20px;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 480px;
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: linear-gradient(135deg, #eef6ff, #ffffff);
+        }
+
+        .hero-content {
+            max-width: 650px;
+            animation: slideIn 0.8s ease;
+        }
+
+        .small-title {
+            letter-spacing: 5px;
+            font-size: 13px;
+            color: #1267c4;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .hero h2 {
+            color: #0879e8;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #52657a;
+            max-width: 600px;
+            margin-bottom: 25px;
+            font-size: 17px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 13px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #0879e8;
+            color: white;
+        }
+
+        .secondary {
+            background: white;
+            color: #172b4d;
+            border: 1px solid #7c8da5;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-art {
+            width: 360px;
+            height: 280px;
+            background: #dceeff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 65px 7%;
+        }
+
+        .section-title {
+            margin-bottom: 30px;
+        }
+
+        .section-title small {
+            color: #1267c4;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-top: 5px;
+        }
+
+        /* Project Cards */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e4ebf3;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #e3f1ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e3f1ff;
+            color: #0879e8;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .details {
+            display: none;
+            margin-top: 12px;
+            color: #52657a;
+        }
+
+        .details.show {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .details-btn {
+            margin-top: 15px;
+            background: none;
+            border: none;
+            color: #0879e8;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* About + Contact */
+
+        .about-contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: #52657a;
+            margin-top: 15px;
+        }
+
+        .contact-box {
+            background: #e8f4ff;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .contact-box h2 {
+            margin-bottom: 20px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccd7e3;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #0879e8;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-message {
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success {
+            display: block;
+            background: #d9f8df;
+            color: #168238;
+        }
+
+        .error {
+            display: block;
+            background: #ffe0e0;
+            color: #c62828;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #10243d;
+            color: white;
+            padding: 30px 7%;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+
+        body.dark {
+            background: #101820;
+            color: #eeeeee;
+        }
+
+        body.dark .hero {
+            background: linear-gradient(135deg, #17283b, #101820);
+        }
+
+        body.dark .hero p,
+        body.dark .about-text p,
+        body.dark .details {
+            color: #c3ced9;
+        }
+
+        body.dark .card {
+            background: #1d2b39;
+            border-color: #334454;
+        }
+
+        body.dark .contact-box {
+            background: #1c3349;
+        }
+
+        body.dark .secondary {
+            background: #1d2b39;
+            color: white;
+        }
+
+        /* Animations */
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Responsive Design */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .projects {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-contact {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-wrap: wrap;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 12px;
+                padding-top: 15px;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            .hero {
+                padding: 60px 6%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .hero-art {
+                width: 250px;
+                height: 200px;
+                font-size: 70px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            Nayan Kumar R
+            <span>Frontend Web Developer</span>
+        </div>
+
+        <nav id="navMenu">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-buttons">
+            <button class="theme-btn" id="themeBtn">
+                🌙 Dark
+            </button>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                HELLO, I'M
+            </div>
+
+            <h1>Nayan Kumar R</h1>
+
+            <h2>Frontend Web Developer</h2>
+
+            <p>
+                BCA Student at Kuvempu University and aspiring
+                frontend developer passionate about building
+                responsive and interactive websites using
+                HTML, CSS and JavaScript.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn primary">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-art">
+            💻
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECT SECTION
+    ========================== -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <small>MY WORK</small>
+
+            <h2>Featured Projects</h2>
+
+        </div>
+
+        <div class="projects">
+
+            <!-- Card 1 -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🌐
+                </div>
+
+                <h3>Responsive Portfolio</h3>
+
+                <span class="tag">
+                    HTML & CSS
+                </span>
+
+                <p>
+                    A responsive personal portfolio
+                    designed for mobile, tablet and
+                    desktop devices.
+                </p>
+
+                <div class="details">
+                    This project demonstrates semantic
+                    HTML5 structure, CSS Grid, responsive
+                    layouts and media queries.
+                </div>
+
+                <button class="details-btn">
+                    View Details →
+                </button>
+
+            </div>
+
+
+            <!-- Card 2 -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🛒
+                </div>
+
+                <h3>Product Landing Page</h3>
+
+                <span class="tag">
+                    HTML, CSS, JS
+                </span>
+
+                <p>
+                    A clean landing page with
+                    interactive components and
+                    dynamic content.
+                </p>
+
+                <div class="details">
+                    JavaScript event handling is used
+                    to create dynamic interactions and
+                    improve the user experience.
+                </div>
+
+                <button class="details-btn">
+                    View Details →
+                </button>
+
+            </div>
+
+
+            <!-- Card 3 -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🧮
+                </div>
+
+                <h3>JavaScript Calculator</h3>
+
+                <span class="tag">
+                    JavaScript
+                </span>
+
+                <p>
+                    A simple interactive calculator
+                    demonstrating JavaScript events
+                    and DOM manipulation.
+                </p>
+
+                <div class="details">
+                    User actions are captured through
+                    event listeners and the interface
+                    is updated dynamically.
+                </div>
+
+                <button class="details-btn">
+                    View Details →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT + CONTACT
+    ========================== -->
+
+    <section id="about">
+
+        <div class="about-contact">
+
+            <div class="about-text">
+
+                <div class="section-title">
+
+                    <small>ABOUT ME</small>
+
+                    <h2>Building Simple Ideas for a Better Web</h2>
+
+                </div>
+
+                <p>
+                    I am a BCA student at Kuvempu University
+                    interested in frontend web development.
+                    I enjoy creating clean, responsive and
+                    interactive websites using HTML, CSS
+                    and JavaScript.
+                </p>
+
+                <p>
+                    This portfolio is part of my Week 3
+                    Frontend Web Developer internship task,
+                    where JavaScript is used to add dynamic
+                    behavior and improve user experience.
+                </p>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div class="contact-box" id="contact">
+
+                <h2>Get In Touch</h2>
+
+                <form id="contactForm">
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your Name"
+                    >
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Your Email"
+                    >
+
+                    <textarea
+                        id="message"
+                        placeholder="Your Message"
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn primary"
+                    >
+                        Send Message
+                    </button>
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                    ></div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>Nayan Kumar R</h3>
+
+        <p>
+            BCA Student | Kuvempu University
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 Nayan Kumar R |
+            Kuvempu University SEP Internship Portfolio
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+
+        const navMenu = document.getElementById("navMenu");
+
+        menuBtn.addEventListener("click", function () {
+
+            navMenu.classList.toggle("show");
+
+            if (navMenu.classList.contains("show")) {
+
+                menuBtn.textContent = "✕";
+
+            } else {
+
+                menuBtn.textContent = "☰";
+
+            }
+
+        });
+
+
+        /* =========================
+           CLOSE MENU AFTER CLICK
+        ========================== */
+
+        const navLinks = document.querySelectorAll("#navMenu a");
+
+        navLinks.forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navMenu.classList.remove("show");
+
+                menuBtn.textContent = "☰";
+
+            });
+
+        });
+
+
+        /* =========================
+           DARK / LIGHT MODE
+        ========================== */
+
+        const themeBtn =
+            document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", function() {
+
+            document.body.classList.toggle("dark");
+
+            if (document.body.classList.contains("dark")) {
+
+                themeBtn.textContent = "☀️ Light";
+
+            } else {
+
+                themeBtn.textContent = "🌙 Dark";
+
+            }
+
+        });
+
+
+        /* =========================
+           PROJECT DETAILS
+        ========================== */
+
+        const detailButtons =
+            document.querySelectorAll(".details-btn");
+
+        detailButtons.forEach(function(button) {
+
+            button.addEventListener("click", function() {
+
+                const details =
+                    button.previousElementSibling;
+
+                details.classList.toggle("show");
+
+                if (details.classList.contains("show")) {
+
+                    button.textContent = "Hide Details ↑";
+
+                } else {
+
+                    button.textContent = "View Details →";
+
+                }
+
+            });
+
+        });
+
+
+        /* =========================
+           CONTACT FORM VALIDATION
+        ========================== */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const message =
+                document.getElementById("message").value.trim();
+
+            const formMessage =
+                document.getElementById("formMess

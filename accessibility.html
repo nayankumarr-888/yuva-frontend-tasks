@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayan Kumar R | Performance & Accessibility Optimization</title>
+    <style>
+        /* CRITICAL DRY MINI-CSS RULES - ZERO REDUNDANCY */
+        :root {
+            --primary-blue: #003366;
+            --text-main: #1a202c;
+            --bg-canvas: #f7fafc;
+            --focus-outline: #ff9900;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: var(--bg-canvas); color: var(--text-main); line-height: 1.6; font-size: 16px; }
+        
+        /* High-Contrast Accessible Header Landmark */
+        header { background-color: var(--primary-blue); color: #ffffff; padding: 20px 7%; display: flex; justify-content: space-between; align-items: center; }
+        header .logo { font-size: 20px; font-weight: bold; }
+        header nav a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 600; padding: 6px 10px; border-radius: 4px; }
+        
+        /* High-Visibility Focus Outline Rings for Keyboard Users */
+        a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid var(--focus-outline); outline-offset: 3px; }
+        
+        /* Layout Configuration */
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .hero { background: #ffffff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; border-left: 6px solid var(--primary-blue); }
+        .hero h1 { color: var(--primary-blue); font-size: 2.2rem; margin-bottom: 12px; }
+        
+        /* Grid Alignment Matrix */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .metric-card { background: #ffffff; padding: 25px; border-radius: 6px; border: 1px solid #e2e8f0; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .metric-card h3 { color: var(--primary-blue); margin-bottom: 10px; }
+        
+        /* High-Performance Scalar Vector Graphics (SVGs) instead of Bitmaps */
+        .opt-icon { width: 44px; height: 44px; margin-bottom: 15px; fill: var(--primary-blue); }
+        
+        footer { text-align: center; padding: 30px; background-color: #1a202c; color: #edf2f7; margin-top: 60px; font-size: 14px; }
+        @media(max-width: 600px) { header { flex-direction: column; gap: 15px; } .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <!-- ARIA COMPLIANT SITE BANNER LANDMARK -->
+    <header role="banner">
+        <div class="logo" aria-label="Nayan Kumar R Developer Portfolio logo">Nayan Kumar R</div>
+        <nav role="navigation" aria-label="Main Section Content Navigation">
+            <a href="#main-content">Skip to Content</a>
+            <a href="#optimization-details">Metrics</a>
+        </nav>
+    </header>
+
+    <!-- ARIA COMPLIANT CORE MAIN LANDMARK -->
+    <main class="container" id="main-content" role="main">
+        
+        <section class="hero" aria-labelledby="task-title">
+            <h1 id="task-title">Week 4 Task: Performance and Accessibility Execution</h1>
+            <p>This module implements aggressive stylesheet minification strategies alongside modern Web Content Accessibility Guidelines (WCAG 2.1) compliance features to achieve optimal usability markers without heavy computation loads.</p>
+        </section>
+
+        <section class="grid" id="optimization-details" aria-label="Optimization Parameters Grid">
+            
+            <!-- Structural Accessibility Block Component -->
+            <article class="metric-card">
+                <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://w3.org">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+                </svg>
+                <h3>ARIA Accessibility Integration</h3>
+                <p>Incorporates strict landmark roles, screen-reader semantic hierarchies, high color-contrast patterns, and explicit focus properties targeting zero-mouse interactive use layouts smoothly.</p>
+            </article>
+
+            <!-- Asset Performance Minimization Component -->
+            <article class="metric-card">
+                <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://w3.org">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
+                <h3>Asset Compression Strategy</h3>
+                <p>Removes heavy asset payload sizes completely by refactoring layout shapes with lightweight hardware-accelerated inline SVG arrays and compact native CSS stylesheets.</p>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- ARIA COMPLIANT FOOTER LANDMARK -->
+    <footer role="contentinfo">
+        <p>&copy; 2026 Nayan Kumar R | Kuvempu University SEP BCA Technical Report Framework</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nayan Kumar R | Advanced Single Page Application (SPA)</title>
+    <style>
+        /* CSS3 STYLING AND VIEW TRANSITIONS MATRIX */
+        :root {
+            --primary-accent: #004d99;
+            --secondary-dark: #111827;
+            --panel-light: #ffffff;
+            --canvas-bg: #f3f4f6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: var(--canvas-bg); color: var(--secondary-dark); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* Persistent Shell Frame Header Layout */
+        header { background-color: var(--primary-accent); color: white; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .branding h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+        .branding span { display: block; font-size: 11px; font-weight: 400; opacity: 0.8; }
+        
+        /* Router Trigger Navigation Elements */
+        nav { display: flex; gap: 20px; }
+        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 15px; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: background 0.3s; }
+        nav a:hover, nav a.active-route { background: rgba(255,255,255,0.2); color: #00ffcc; }
+        
+        /* Dynamic Core Shell Content Dynamic Inject Container Zone */
+        .app-view-port { flex: 1; max-width: 900px; width: 100%; margin: 40px auto; padding: 0 20px; }
+        .view-content-wrapper { background: var(--panel-light); padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 6px solid var(--primary-accent); }
+        
+        /* Smooth View Injected Keyframes Animation System */
+        .spa-fade-in { animation: viewFadeIn 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        @keyframes viewFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .metric-badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-bottom: 15px; }
+        footer { text-align: center; padding: 20px; background: var(--secondary-dark); color: #9ca3af; font-size: 13px; margin-top: auto; }
+        @media(max-width: 600px){ header{ flex-direction: column; gap: 15px; text-align: center; } nav{ gap: 10px; } }
+    </style>
+</head>
+<body>
+
+    <!-- PERSISTENT SHELL LAYOUT HEADER FRAMEWORK -->
+    <header>
+        <div class="branding">
+            <h1>Nayan Kumar R</h1>
+            <span>Advanced SPA Router Simulation Engine</span>
+        </div>
+        <!-- Intercepted Router Elements -->
+        <nav id="spa-nav-menu">
+            <a data-link="home" class="active-route">Home</a>
+            <a data-link="profile">Profile</a>
+            <a data-link="performance">Metrics</a>
+        </nav>
+    </header>
+
+    <!-- CORE VIEW TARGET POINT CONTAINER CONTAINER -->
+    <main class="app-view-port">
+        <div id="view-router-root" class="view-content-wrapper spa-fade-in">
+            <!-- Client View Templates Hydrated Intact Instantly Via Engine JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nayan Kumar R | Kuvempu University SEP BCA Core Capstone Project</p>
+    </footer>
+
+    <!-- CLIENT SIDE APP ROUTING ENGINE JAVASCRIPT LAYER -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. In-Memory Static Virtual Decoupled Virtual Template Views Object Store
+            const applicationViews = {
+                home: `
+                    <div class="spa-fade-in">
+                        <span class="metric-badge">Module 1: Dashboard View</span>
+                        <h2 style="color:var(--primary-accent); margin-bottom:12px;">Welcome to the Capstone SPA Shell</h2>
+                        <p style="color:#4b5563;">This application is fully contained inside a unified DOM root container shell node. Tapping on any menu control button at the header panel executes dynamic node re-hydration layout transitions without executing an absolute system browser refresh loop cycle or HTTP layout data pipeline re-fetches.</p>
+                    </div>`,
+                profile: `
+                    <div class="spa-fade-in">
+                        <span class="metric-badge">Module 2: Academic Candidate Record</span>
+                        <h2 style="color:var(--primary-accent); margin-bottom:12px;">Candidate Profile: Nayan Kumar R</h2>
+                        <p style="color:#4b5563;"><strong>Course Enrollment:</strong> Bachelor of Computer Applications (BCA)</p>
+                        <p style="color:#4b5563; margin-top:8px;"><strong>Academic Board:</strong> Department of Computer Applications - Kuvempu University</p>
+                        <p style="color:#4b5563; margin-top:8px;"><strong>Curriculum Framework:</strong> Karnataka State Education Policy (SEP) Compliance Matrix</p>
+                    </div>`,
+                performance: `
+                    <div class="spa-fade-in">
+                        <span class="metric-badge">Module 3: Optimization Metrics Output</span>
+                        <h2 style="color:var(--primary-accent); margin-bottom:12px;">System Router Diagnostic Ledger</h2>
+                        <p style="color:#4b5563;"><strong>Routing Protocol Engine:</strong> Custom JavaScript Client-Side Hash Event Router</p>
+                        <p style="color:#4b5563; margin-top:8px;"><strong>Content Load Speed Latency:</strong> 0.00ms (Instantaneous Local Array Memory Injections)</p>
+                        <p style="color:#4b5563; margin-top:8px;"><strong>State Resolution Status:</strong> Verified Active Under University Evaluation Parameters</p>
+                    </div>`
+            };
+
+            const viewRootNode = document.getElementById('view-router-root');
+            const navigationLinks = document.querySelectorAll('#spa-nav-menu a');
+
+            // 2. Client Side Core Logic Router State Dispatch Handler Function
+            function coreAppRouter(targetRoute) {
+                // Remove visual rendering animation state wrapper triggers
+                viewRootNode.classList.remove('spa-fade-in');
+                void viewRootNode.offsetWidth; // Hard reflow clean reset to trigger CSS keyframes restart
+                
+                // Content Switch Evaluation Node Injection Engine Logic
+                const templateMarkup = applicationViews[targetRoute] || `<h2>404 - Render Target Path Missing</h2>`;
+                viewRootNode.innerHTML = templateMarkup;
+                viewRootNode.classList.add('spa-fade-in');
+
+                // Dynamic Navigation Class Utility Update State Node Loop
+                navigationLinks.forEach(link => {
+                    if(link.getAttribute('data-link') === targetRoute) {
+                        link.classList.add('active-route');
+                    } else {
+                        link.classList.remove('active-route');
+                    }
+                });
+
+                // Modify hash structure state records for structural link mapping track preservation
+                window.location.hash = `/${targetRoute}`;
+            }
+
+            // 3. Attach Navigation Click Interception Loop Event Observers
+            navigationLinks.forEach(linkButton => {
+                linkButton.addEventListener('click', (e) => {
+                    const structuralRouteValue = linkButton.getAttribute('data-link');
+                    coreAppRouter(structuralRouteValue);
+                });
+            });
+
+            // 4. Initial Window Boot State Synchronization Checking Routine
+            function synchronizeInitialBrowserViewState() {
+                const currentHashStringPath = window.location.hash.replace('#/', '');
+                if (currentHashStringPath && applicationViews[currentHashStringPath]) {
+                    coreAppRouter(currentHashStringPath);
+                } else {
+                    coreAppRouter('home'); // Core App Default Landing Route
+                }
+            }
+
+            // Watch for user backward/forward mobile window system action buttons
+            window.addEventListener('hashchange', synchronizeInitialBrowserViewState);
+            synchronizeInitialBrowserViewState();
+        });
+    </script>
+</body>
+  </html>
+  

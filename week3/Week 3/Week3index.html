@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nayan Kumar R - Week 3 JavaScript Project</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+    transition: 0.3s;
+}
+
+/* Scroll Progress */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: #2563eb;
+    z-index: 2000;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+button {
+    cursor: pointer;
+}
+
+#menuBtn {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 25px;
+}
+
+#themeBtn {
+    border: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    background: #2563eb;
+    color: white;
+}
+
+/* Hero */
+.hero {
+    min-height: 70vh;
+    padding: 80px 7%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #dbeafe, #ffffff);
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.primary-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+/* Sections */
+section {
+    padding: 75px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+}
+
+.section-title p {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+/* Statistics */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+
+.stat strong {
+    display: block;
+    font-size: 40px;
+    color: #2563eb;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filter-btn {
+    border: none;
+    padding: 9px 17px;
+    border-radius: 20px;
+}
+
+.filter-btn.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* Cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.details-btn {
+    border: none;
+    padding: 9px 14px;
+    background: #2563eb;
+    color: white;
+    border-radius: 6px;
+}
+
+.hidden-card {
+    display: none;
+}
+
+/* Form */
+form {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+   
